@@ -1,6 +1,8 @@
 #include "get_next_line.h"
 #include <fcntl.h>
 #include <stdio.h>
+#include <unistd.h>
+#include "malloc_w.h"
 
 int	main(int argc, char **argv)
 {
@@ -17,7 +19,7 @@ int	main(int argc, char **argv)
 	{
 		res = get_next_line(fd, &str);
 		printf("%4d | %+d | %s$\n", lc, res, str);
-		YEET_free_YEET(str);
+		FREE(str);
 		str = NULL;
 		lc += 1;
 	}
